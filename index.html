@@ -1,12 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editor de memes</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="Styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      preload
+    />
+    <script
+      src="https://kit.fontawesome.com/862cf1f366.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!--
+      ***************************************************
+                        HEADER
+      ***************************************************
+    -->
+    <header class="header">
+      <h1 class="header-tittle">Generador de memes</h1>
+      <div class="button-container">
+        <button id="btn-img"><i class="far fa-images"></i> Imagen</button>
+        <button id="btn-text"><i class="fas fa-font"></i> Texto</button>
+        <button id="btn-mode"><i class="fas fa-lightbulb"></i> Modo Claro</button>
+      </div>
+    </header>
+    <!--
+      ***************************************************
+                        MAIN
+      ***************************************************
+    -->
+    <main>
+      <div class="meme-container">
+        <p class="meme-text">Texto superior</p>
+        <img src="" alt="" />
+        <p class="meme-text">Texto inferior</p>
+      </div>
+      <button><i class="fas fa-download"></i> Descargar meme</button>
+    </main>
+    <!--
+      ***************************************************
+                        ASIDE
+      ***************************************************
+    -->
+    <aside class="panel" id="panel">
+      <button class="button-close" id="button-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <section class="imagen" id="panel-imagen">
+        <h3>IMAGEN</h3>
+        <input type="text" />
+      </section>
+
+      <section class="texto" id="panel-texto">
+        <h3>TEXTO</h3>
+        <input type="text" />
+      </section>
+    </aside>
+    <script src="app.js"></script>
+  </body>
 </html>

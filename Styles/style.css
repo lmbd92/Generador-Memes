@@ -1,21 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap");
+
 * {
-  margin: 0;
-  box-sizing: border-box; /* Css ignorará el padding en las cuentas del modelo de caja */
+  box-sizing: border-box; /* Css ignorará el padding en los calculos del modelo de caja */
 }
 
-.header {
-  background-color: #e0e0e0;
+/*
+  *********************************** 
+                Theme
+  ***********************************
+*/
+
+body.dark-theme {
+  --color-header: #191e2b;
+  --color-background: #30343f;
+  --colo-panel: #252935;
+
+  --color-boton-default: #393e49;
+  --color-boton-default-hover: #4e5565;
+
+  --color-text: #ffffff;
+  --font-primary: "Roboto", sans-serif;
+  --border-radius: 3px;
+}
+
+body.light-theme {
+  --color-header: #e0e0e0;
+  --color-background: #eeeeee;
+  --colo-panel: #fafafa;
+
+  --color-boton-default: #e0e0e0;
+  --color-boton-default-hover: #bdbdbd;
+
+  --color-text: #424242;
+  --color-title-panel: rgb(33 33 33 /80%);
+  --color-title-control: rgb(33 33 33 /80%);
+  --font-primary: "Roboto", sans-serif;
+  --border-radius: 3px;
+}
+
+/*
+  *********************************** 
+                General
+  ***********************************
+*/
+
+html,
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+p{
+  margin: 0;
+}
+
+body {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-
-.header-tittle {
-  text-align: center;
-  font-size: 36px;
-  font-weight: 600;
-  margin: 10px;
+  overflow: hidden;
+  color: var(--color-text);
+  font-family: var(--font-primary);
 }
 
 .panel {
@@ -34,3 +78,143 @@
 .ocultar {
   display: none;
 }
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.panel-botones {
+  justify-content: center;
+}
+
+.button {
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button-default {
+  background-color: var(--color-boton-default);
+}
+
+.button-icon-text {
+  margin-right: 5px;
+  display: block;
+}
+
+.button-text:hover,
+.button-text:focus,
+.button-default:hover,
+.button-default:focus {
+  background-color: var(--color-boton-default-hover);
+}
+
+input,
+button,
+select,
+textarea {
+  /* border: 0; */
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  background-color: transparent;
+  display: block;
+  /* outline: 0; */
+}
+
+/*
+  *********************************** 
+                Header
+  ***********************************
+*/
+
+.header {
+  background-color: var(--color-header);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.header-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin: 10px;
+}
+
+/*
+  *********************************** 
+                Main
+  ***********************************
+*/
+
+.main-container {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background);
+  padding: 0 20px;
+}
+
+.meme-container {
+  width: 100%;
+  max-width: 610px;
+  height: 610px;
+  background-color: #000000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.meme-text {
+  width: 100%;
+  background-color: #ffffff;
+  text-align: center;
+  font-weight: 800;
+  color: #000000;
+  padding: 18px 50px;
+  font-size: 40px;
+  font-family: Verdana;
+}
+
+#top-text {
+  top: 0;
+}
+
+#bottom-text {
+  bottom: 0;
+}
+
+#meme-img{
+  width: 100%;
+  flex-grow: 1;
+  background-size: cover;
+}
+
+#btn-descargar{
+  margin-top: 30px;
+  padding: 15px;
+  height: auto;
+  background-color: #2e7d32;
+  color: #ffffff;
+}
+
+#btn-descargar:hover{
+  background-color: #1b5e20;
+}
+
+/*
+  *********************************** 
+                Asaid
+  ***********************************
+*/

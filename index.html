@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editor de memes</title>
-    <link rel="stylesheet" href="Styles/style.css" />
+    <link rel="stylesheet" href="./Styles/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -16,18 +16,36 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body class="light-theme">
     <!--
       ***************************************************
                         HEADER
       ***************************************************
     -->
     <header class="header">
-      <h1 class="header-tittle">Generador de memes</h1>
-      <div class="button-container">
-        <button id="btn-img"><i class="far fa-images"></i> Imagen</button>
-        <button id="btn-text"><i class="fas fa-font"></i> Texto</button>
-        <button id="btn-mode"><i class="fas fa-lightbulb"></i> Modo Claro</button>
+      <h1 class="header-title">Generador de memes</h1>
+      <div class="button-container panel-botones">
+        <button
+          class="button button-text"
+          id="btn-img"
+          aria-label="Boton panel imagen"
+        >
+          <i class="far fa-images button-icon-text"></i> Imagen
+        </button>
+        <button
+          class="button button-text"
+          id="btn-text"
+          aria-label="Boton panel texto"
+        >
+          <i class="fas fa-font button-icon-text"></i> Texto
+        </button>
+        <button
+          class="button button-text"
+          id="btn-theme"
+          aria-label="Boton tema"
+        >
+          <i class="fas fa-lightbulb button-icon-text"></i> Modo Claro
+        </button>
       </div>
     </header>
     <!--
@@ -35,13 +53,20 @@
                         MAIN
       ***************************************************
     -->
-    <main>
+    <main class="main-container">
       <div class="meme-container">
-        <p class="meme-text">Texto superior</p>
-        <img src="" alt="" />
-        <p class="meme-text">Texto inferior</p>
+        <p class="meme-text" id="top-text">Texto superior</p>
+        <div id="meme-img"></div>
+        <p class="meme-text" id="bottom-text">Texto inferior</p>
       </div>
-      <button><i class="fas fa-download"></i> Descargar meme</button>
+      <button
+        type="button"
+        class="button"
+        id="btn-descargar"
+        aria-label="Boton descarga meme"
+      >
+        <i class="fas fa-download button-icon-text"></i> Descargar meme
+      </button>
     </main>
     <!--
       ***************************************************
@@ -49,19 +74,52 @@
       ***************************************************
     -->
     <aside class="panel" id="panel">
-      <button class="button-close" id="button-close">
+      <button
+        class="button-close"
+        id="panel-button-close"
+        aria-label="Boton cerrar panel"
+      >
         <i class="fas fa-times"></i>
       </button>
+
       <section class="imagen" id="panel-imagen">
-        <h3>IMAGEN</h3>
-        <input type="text" />
+        <h2 class="panel-title">IMAGEN</h2>
+        <div class="panel-control">
+          <h3 class="panel-control-title">URL</h3>
+          <input type="text" class="url-input" id="url-img-input" />
+        </div>
+
+        <div class="panel-control">
+          <h3 class="panel-control-title">FONDO</h3>
+          <div class="panel-control-options">
+            <div>
+              <input
+                type="color"
+                aria-label="color fondo imagen"
+                id="color-fondo-img-input"
+                value="#FFFFFF"
+              /><span id="color-fondo-img-span" aria-hidden="true">#FFFFFF</span>
+            </div>
+            <div>
+              <select name="" id="">
+                <option value="unset">Ninguno</option>
+                <option value="lighten">Aclarar</option>
+                <option value="darken">Oscurecer</option>
+                <option value="difference">Diferencia</option>
+                <option value="luminosity">Luminosidad</option>
+                <option value="multiply">Multiplicar</option>
+              </select>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="texto" id="panel-texto">
-        <h3>TEXTO</h3>
+        <h2 class="panel-title">TEXTO</h2>
         <input type="text" />
       </section>
     </aside>
+
     <script src="app.js"></script>
   </body>
 </html>

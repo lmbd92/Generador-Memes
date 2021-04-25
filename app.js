@@ -1,7 +1,7 @@
 "use strict";
 
 const panel = document.querySelector("#panel");
-const btnClose = document.querySelector("#button-close");
+const btnClose = document.querySelector("#panel-button-close");
 const btnImg = document.querySelector("#btn-img");
 const btnText = document.querySelector("#btn-text");
 const panelImg = document.querySelector("#panel-imagen");

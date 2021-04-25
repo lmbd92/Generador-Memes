@@ -63,10 +63,19 @@ body {
 }
 
 .panel {
+  width: 260px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--colo-panel);
+  padding: 30px 15px;
+  overflow: auto;
   position: fixed;
   top: 0;
-  left: 0;
-  z-index: 1;
+  right: 0;
+  z-index: 10;
+  box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
 }
 
 .button-close {
@@ -121,12 +130,12 @@ input,
 button,
 select,
 textarea {
-  /* border: 0; */
+  border: 0;
   color: var(--color-text);
   font-family: var(--font-primary);
   background-color: transparent;
   display: block;
-  /* outline: 0; */
+  outline: 0;
 }
 
 /*

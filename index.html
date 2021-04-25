@@ -85,10 +85,12 @@
       <section class="imagen" id="panel-imagen">
         <h2 class="panel-title">IMAGEN</h2>
         <div class="panel-control">
+          <!-- URL -->
           <h3 class="panel-control-title">URL</h3>
           <input type="text" class="url-input" id="url-img-input" />
         </div>
 
+        <!-- FONDO -->
         <div class="panel-control">
           <h3 class="panel-control-title">FONDO</h3>
           <div class="panel-control-options">
@@ -112,6 +114,21 @@
             </div>
           </div>
         </div>
+
+        <!--FILTROS  -->
+        <div class="panel-control">
+          <h3 class="panel-control-title">FILTROS</h3>
+          <div class="panel-control-filtros"><label for="brillo-range">BRILLO</label><input type="range" id="brillo-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="opacidad-range">OPACIDAD</label><input type="range" id="opacidad-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="contraste-range">CONTRASTE</label><input type="range" id="contraste-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="desenfoque-range">DESENFOQUE</label><input type="range" id="desenfoque-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="grises-range">ESCALA DE GRISES</label><input type="range" id="grises-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="sepia-range">SEPIA</label><input type="range"  id="sepia-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="hue-range">HUE</label><input type="range" id="hue-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="saturado-range">SATURADO</label><input type="range" id="saturado-range" min="0" max="1" value="1" step="0.1"></div>
+          <div class="panel-control-filtros"><label for="negativo-range">NEGATIVO</label><input type="range" id="negativo-range" min="0" max="1" value="1" step="0.1"></div>
+        </div>
+        <button class="button button-default" id="restablecer-filtros">Reestablecer filtros</button>
       </section>
 
       <section class="texto" id="panel-texto">

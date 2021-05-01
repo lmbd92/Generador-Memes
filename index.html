@@ -74,7 +74,7 @@
       ***************************************************
     -->
     <aside class="panel" id="panel">
-      <button
+      <button 
         class="button-close"
         id="panel-button-close"
         aria-label="Boton cerrar panel"
@@ -82,6 +82,7 @@
         <i class="fas fa-times"></i>
       </button>
 
+      <!--SIDEBAR IMAGEN-->
       <section class="imagen" id="panel-imagen">
         <h2 class="panel-title">IMAGEN</h2>
         <div class="panel-control">
@@ -103,7 +104,7 @@
               /><span id="color-fondo-img-span" aria-hidden="true">#FFFFFF</span>
             </div>
             <div>
-              <select name="" id="">
+              <select id="efectos-fondo">
                 <option value="unset">Ninguno</option>
                 <option value="lighten">Aclarar</option>
                 <option value="darken">Oscurecer</option>
@@ -131,10 +132,104 @@
         <button class="button button-default" id="restablecer-filtros">Reestablecer filtros</button>
       </section>
 
-      <section class="texto" id="panel-texto">
-        <h2 class="panel-title">TEXTO</h2>
-        <input type="text" />
-      </section>
+    </section>
+    <!--SIDEBAR TEXTO-->
+    <section class="sidebar ocultar" id="panel-texto">
+      <div class="divwidth">
+      <h3>TEXTO</h3></div>
+        <h4>SUPERIOR</h4>
+        <input id="sup-text" class="sidebar-input" type="text" />
+        <label>
+        <input id="sup-check" type="checkbox"/>
+        Sin texto superior</label>
+        <h4>INFERIOR</h4>
+        <input id="inf-text" class="sidebar-input" type="text" />
+        <label>
+        <input id="inf-check" type="checkbox" /> Sin texto inferior</label>
+        <!--FONT STYLE-->
+        <h4>FUENTE</h4>
+        <select
+          id="input-font"
+          class="sidebar-input"
+          onchange="changeFontFam (this);"
+        >
+          <option value="Impact" selected="selected">Impact</option>
+          <option value="Arial">Arial</option>
+          <option value="Arial Black">Arial Black</option>
+          <option value="American Typewritter">American Typewritter</option>
+          <option value="Andale Mono">Andale Mono</option>
+          <option value="Comic Sans MS">Comic Sans MS</option>
+          <option value="Helvetica">Helvetica</option>
+          <option value="Impact">Impact</option>
+          <option value="Verdana">Verdana</option>
+          <option value="Times New Roman">Times New Roman</option>
+        </select>
+        <div class="divrow">
+          <!--FONT SIZE-->
+          <input
+            class="sidebar-input"
+            type="number"
+            min="12"
+            id="font-size"
+            value="40"
+            onchange="changeFontSize (this);"
+
+          />
+          <div class="divrow">
+            <button id="btn-text-left" type="button" class="sidebar-input">
+              <i class="fas fa-align-left"></i>
+            </button>
+            <button id="btn-text-center" type="button" class="sidebar-input">
+              <i class="fas fa-align-center"></i>
+            </button>
+            <button id="btn-text-right" type="button" class="sidebar-input">
+              <i class="fas fa-align-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="divrow" style="justify-content: center">
+          <div class="divcol">
+            <h4>COLOR</h4>
+            <input type="color" value="#000000" id="text-color" />
+          </div>
+          <div class="divcol">
+            <h4>FONDO</h4>
+            <input type="color" value="#000000" id="fondo-color" />
+          </div>
+        </div>
+        <br/>
+        <input class="sidebar-input" id="fondo-check" type="checkbox" />Fondo
+        transparente
+        <h4>CONTORNO</h4>
+        <div class="divrow" >
+          <button id="strokeNone" class="sidebar-input">Ninguno</button>
+          <button id="strokeLight" class="sidebar-input">Claro</button>
+          <button id="strokeDark" class="sidebar-input">Oscuro</button>
+        </div>
+        <h4>ESPACIADO</h4>
+        <input
+          class="sidebar-input"
+          type="number"
+          id="espaciado"
+          min="10"
+          max="50"
+          value="35"
+        />
+        <h4>INTERLINEADO</h4>
+        <select
+          id="interlineado"
+          class="sidebar-input"
+          value="17"
+          range
+        >
+          <option value="0.8">0.8</option>
+          <option value="1">1</option>
+          <option value="1.2" selected="selected">1.2</option>
+          <option value="1.5">1.5</option>
+          <option value="2">2</option>
+        </select>
+      
+    </section>
     </aside>
 
     <script src="app.js"></script>

@@ -13,6 +13,22 @@ const memeImg = document.querySelector("#meme-img");
 const inputFondo = document.querySelector("#color-fondo-img-input");
 const optionSelect = document.querySelector("#efectos-fondo");
 
+//Filtros
+
+const filtroBrillo = document.querySelector("#brillo-range");
+const filtroOpacidad = document.querySelector("#opacidad-range");
+const filtroContraste = document.querySelector("#contraste-range");
+const filtroDesenfoque = document.querySelector("#desenfoque-range");
+const filtroGrises = document.querySelector("#grises-range");
+const filtroSepia = document.querySelector("#sepia-range");
+const filtroHUE = document.querySelector("#hue-range");
+const filtroSaturado = document.querySelector("#saturado-range");
+const filtroNegativo = document.querySelector("#negativo-range");
+
+//Restablecer filtros
+
+const btnRestart = document.querySelector("#restablecer-filtros");
+
 // Ocultar panel
 btnClose.addEventListener("click", () => {
   panel.classList.add("ocultar");
@@ -64,3 +80,42 @@ optionSelect.addEventListener("change", () => {
 });
 
 // Filtros imagen
+
+const actualizarFiltros = () => {
+  memeImg.style.filter = `brightness(${filtroBrillo.value}) 
+  opacity(${filtroOpacidad.value}) contrast(${filtroContraste.value}%) 
+  blur(${filtroDesenfoque.value}px) grayscale(${filtroGrises.value}%) 
+  sepia(${filtroSepia.value}%) hue-rotate(${filtroHUE.value}deg) 
+  saturate(${filtroSaturado.value}%) invert(${filtroNegativo.value})`;
+};
+
+filtroBrillo.addEventListener("change", actualizarFiltros);
+filtroOpacidad.addEventListener("change", actualizarFiltros);
+filtroContraste.addEventListener("change", actualizarFiltros);
+filtroDesenfoque.addEventListener("change", actualizarFiltros);
+filtroGrises.addEventListener("change", actualizarFiltros);
+filtroSepia.addEventListener("change", actualizarFiltros);
+filtroHUE.addEventListener("change", actualizarFiltros);
+filtroSaturado.addEventListener("change", actualizarFiltros);
+filtroNegativo.addEventListener("change", actualizarFiltros);
+
+//Resestablecer filtros
+
+const reiniciar = () => {
+  filtroBrillo.value = "1";
+  filtroOpacidad.value = "1";
+  filtroContraste.value = "1000";
+  filtroDesenfoque.value = "0";
+  filtroGrises.value = "0";
+  filtroSepia.value = "0";
+  filtroHUE.value = "0";
+  filtroSaturado.value = "100";
+  filtroNegativo.value = "0";
+};
+
+btnRestart.addEventListener("click", () =>{
+  reiniciar();
+  actualizarFiltros();
+});
+
+

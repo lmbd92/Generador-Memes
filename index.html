@@ -15,6 +15,11 @@
       src="https://kit.fontawesome.com/862cf1f366.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous"></script>
+
   </head>
   <body class="light-theme">
     <!--
@@ -138,12 +143,12 @@
       <div class="divwidth">
       <h3>TEXTO</h3></div>
         <h4>SUPERIOR</h4>
-        <input id="sup-text" class="sidebar-input" type="text" />
+        <textarea id="sup-text" class="sidebar-input" rows="1" value="Top Text" aria-label="Top Text"></textarea>
         <label>
         <input id="sup-check" type="checkbox"/>
         Sin texto superior</label>
         <h4>INFERIOR</h4>
-        <input id="inf-text" class="sidebar-input" type="text" />
+        <textarea id="inf-text" class="sidebar-input" rows="1" value="bottom Text" aria-label="bottom Text"></textarea>
         <label>
         <input id="inf-check" type="checkbox" /> Sin texto inferior</label>
         <!--FONT STYLE-->
@@ -151,17 +156,15 @@
         <select
           id="input-font"
           class="sidebar-input"
-          onchange="changeFontFam (this);"
         >
-          <option value="Impact" selected="selected">Impact</option>
+          <option value="Verdana" selected="selected">Verdana</option>
           <option value="Arial">Arial</option>
-          <option value="Arial Black">Arial Black</option>
-          <option value="American Typewritter">American Typewritter</option>
-          <option value="Andale Mono">Andale Mono</option>
-          <option value="Comic Sans MS">Comic Sans MS</option>
+          <option value="Arial Narrow Bold">Arial Narrow Bold</option>
+          <option value="monospace">monospace</option>
+          <option value="fantasy">fantasy</option>
+          <option value="sans-serif">sans-serif</option>
           <option value="Helvetica">Helvetica</option>
           <option value="Impact">Impact</option>
-          <option value="Verdana">Verdana</option>
           <option value="Times New Roman">Times New Roman</option>
         </select>
         <div class="divrow">
@@ -170,10 +173,9 @@
             class="sidebar-input"
             type="number"
             min="12"
+            max="54"
             id="font-size"
             value="40"
-            onchange="changeFontSize (this);"
-
           />
           <div class="divrow">
             <button id="btn-text-left" type="button" class="sidebar-input">
@@ -191,10 +193,12 @@
           <div class="divcol">
             <h4>COLOR</h4>
             <input type="color" value="#000000" id="text-color" />
+            <span id="spantext-color">#000000</span>
           </div>
           <div class="divcol">
             <h4>FONDO</h4>
-            <input type="color" value="#000000" id="fondo-color" />
+            <input type="color" value="#FFFFFF" id="fondo-color-text" />
+            <span id="spantext-colorFondo">#FFFFFF</span>
           </div>
         </div>
         <br/>

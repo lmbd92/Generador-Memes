@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editor de memes</title>
-    <link rel="stylesheet" href="./Styles/style.css" />
+    <title>Generador de memes</title>
+    <link 
+      rel="stylesheet" 
+      href="./Styles/style.css" 
+      preload
+      />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -16,9 +20,17 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous"></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"
+      integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA=="
+      crossorigin="anonymous"
+    ></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" crossorigin="anonymous"></script>
+    <script 
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js" 
+      integrity="sha512-Qlv6VSKh1gDKGoJbnyA5RMXYcvnpIqhO++MhIM2fStMcGT9i2T//tSwYFlcyoRRDcDZ+TYHpH8azBBCyhpSeqw==" 
+      crossorigin="anonymous"
+    ></script>
 
   </head>
   <body class="light-theme">
@@ -28,24 +40,24 @@
       ***************************************************
     -->
     <header class="header">
-      <h1 class="header-title">Generador de memes</h1>
+      <h1 class="header-title">Generador de Memes</h1>
       <div class="button-container panel-botones">
         <button
-          class="button button-text"
+          class="button button-header"
           id="btn-img"
           aria-label="Boton panel imagen"
         >
           <i class="far fa-images button-icon-text"></i> Imagen
         </button>
         <button
-          class="button button-text"
+          class="button button-header"
           id="btn-text"
           aria-label="Boton panel texto"
         >
           <i class="fas fa-font button-icon-text"></i> Texto
         </button>
         <button
-          class="button button-text"
+          class="button button-header"
           id="btn-theme"
           aria-label="Boton tema"
         >
@@ -68,7 +80,7 @@
         type="button"
         class="button"
         id="btn-descargar"
-        aria-label="Boton descarga meme"
+        aria-label="Boton descargar meme"
       >
         <i class="fas fa-download button-icon-text"></i> Descargar meme
       </button>
@@ -91,8 +103,9 @@
       <section class="imagen" id="panel-imagen">
         <h2 class="panel-title">IMAGEN</h2>
         <div class="panel-control">
-          <!-- URL -->
+          <!-- URL -->           
           <h3 class="panel-control-title">URL</h3>
+          <input type="file" name="inpFile" id="inpFile">
           <input type="text" class="url-input" id="url-img-input" />
         </div>
 
@@ -137,15 +150,16 @@
         <button class="button button-default" id="restablecer-filtros">Reestablecer filtros</button>
       </section>
 
-    </section>
-    <!--SIDEBAR TEXTO-->
-    <section class="sidebar ocultar" id="panel-texto">
-      <div class="divwidth">
-      <h3>TEXTO</h3></div>
+      <!--SIDEBAR TEXTO-->
+      <section class="sidebar ocultar" id="panel-texto">
+      <h3>TEXTO</h3>
+      <div class="panel-control">
         <h4>SUPERIOR</h4>
         <textarea id="sup-text" class="sidebar-input" rows="1" value="Top Text" aria-label="Top Text"></textarea>
         <label>
         <input id="sup-check" type="checkbox"/>
+      </div>
+
         Sin texto superior</label>
         <h4>INFERIOR</h4>
         <textarea id="inf-text" class="sidebar-input" rows="1" value="bottom Text" aria-label="bottom Text"></textarea>
@@ -233,9 +247,10 @@
           <option value="2">2</option>
         </select>
       
-    </section>
+      </section>
     </aside>
 
+    <!-- Link JavaScript Logica del generador -->
     <script src="app.js"></script>
   </body>
 </html>

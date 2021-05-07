@@ -1,22 +1,35 @@
 "use strict";
-
+//General
 const panel = document.querySelector("#panel");
 const btnClose = document.querySelector("#panel-button-close");
 const btnImg = document.querySelector("#btn-img");
 const btnText = document.querySelector("#btn-text");
+const btnTheme = document.querySelector("#btn-theme");
 const btnDescargar = document.querySelector("#btn-descargar");
 const memeContainer = document.querySelector(".meme-container");
 const panelImg = document.querySelector("#panel-imagen");
 const panelText = document.querySelector("#panel-texto");
 const body = document.querySelector("body");
-const btnTheme = document.querySelector("#btn-theme");
 const inputImg = document.querySelector("#url-img-input");
 const memeImg = document.querySelector("#meme-img");
 const inputFondo = document.querySelector("#color-fondo-img-input");
 const optionSelect = document.querySelector("#efectos-fondo");
+const inpFile = document.querySelector("#inpFile");
+
+inpFile.addEventListener("change", function () {
+  const file = this.files[0];
+  const reader = new FileReader();
+  if (file) {
+    reader.addEventListener("load", function () {
+      memeImg.style.backgroundImage = `url(${this.result})`;
+    });
+  }else{
+    memeImg.style.backgroundImage = "";
+  }
+  reader.readAsDataURL(file);
+});
 
 //Filtros
-
 const filtroBrillo = document.querySelector("#brillo-range");
 const filtroOpacidad = document.querySelector("#opacidad-range");
 const filtroContraste = document.querySelector("#contraste-range");
@@ -28,7 +41,6 @@ const filtroSaturado = document.querySelector("#saturado-range");
 const filtroNegativo = document.querySelector("#negativo-range");
 
 //Restablecer filtros
-
 const btnRestart = document.querySelector("#restablecer-filtros");
 
 // Ocultar panel
@@ -36,14 +48,14 @@ btnClose.addEventListener("click", () => {
   panel.classList.add("ocultar");
 });
 
-// Mostrar panel imagen
+// Mostrar panel imagen y ocultar panel texto
 btnImg.addEventListener("click", () => {
   panel.classList.remove("ocultar");
   panelText.classList.add("ocultar");
   panelImg.classList.remove("ocultar");
 });
 
-// Mostrar panel texto
+// Mostrar panel texto y ocultar panel imagen
 btnText.addEventListener("click", () => {
   panel.classList.remove("ocultar");
   panelImg.classList.add("ocultar");
@@ -62,27 +74,23 @@ btnTheme.addEventListener("click", () => {
 });
 
 // Url imagen
-
 inputImg.addEventListener("input", () => {
   const url = inputImg.value;
   memeImg.style.backgroundImage = `url(${url})`;
 });
 
-//Fondo Imagen
-
+//Fondo imagen meme
 inputFondo.addEventListener("input", () => {
   const ColorFondo = inputFondo.value;
   memeImg.style.backgroundColor = ColorFondo;
 });
 
-//Efecto fondo
-
+//Efecto de fondo (select list down)
 optionSelect.addEventListener("change", () => {
   memeImg.style.backgroundBlendMode = optionSelect.value;
 });
 
 // Filtros imagen
-
 const actualizarFiltros = () => {
   memeImg.style.filter = `brightness(${filtroBrillo.value}) 
   opacity(${filtroOpacidad.value}) contrast(${filtroContraste.value}%) 
@@ -102,7 +110,6 @@ filtroSaturado.addEventListener("change", actualizarFiltros);
 filtroNegativo.addEventListener("change", actualizarFiltros);
 
 //Resestablecer filtros
-
 const reiniciar = () => {
   filtroBrillo.value = "1";
   filtroOpacidad.value = "1";
@@ -121,7 +128,6 @@ btnRestart.addEventListener("click", () => {
 });
 
 //Panel Texto
-
 const textSup = document.querySelector("#sup-text"); //Input
 const checkSup = document.querySelector("#sup-check"); // CheckBox
 const textInf = document.querySelector("#inf-text"); //Input
@@ -152,7 +158,7 @@ textInf.addEventListener("input", () => {
   memeTextInf.innerText = textInf.value;
 });
 
-// Deshabilitar el texto y textArea superior
+// Deshabilitar el texto <p> y textArea superior
 checkSup.addEventListener("click", () => {
   if (checkSup.checked) {
     memeTextSup.classList.add("ocultar");
@@ -163,7 +169,7 @@ checkSup.addEventListener("click", () => {
   }
 });
 
-// Deshabilitar el texto y textArea inferior
+// Deshabilitar el texto <p> y textArea inferior
 checkInf.addEventListener("click", () => {
   if (checkInf.checked) {
     memeTextInf.classList.add("ocultar");
@@ -201,7 +207,7 @@ btnRight.addEventListener("click", () => {
   memeTextInf.style.textAlign = "right";
 });
 
-//Contornos texto superior e inferior
+//Remover contornos texto superior e inferior
 btnSinContorno.addEventListener("click", () => {
   memeTextSup.style.textShadow = "";
   memeTextInf.style.textShadow = "";
@@ -224,12 +230,14 @@ colorText.addEventListener("input", () => {
   labelColorText.textContent = colorText.value;
 });
 
+//Color fondo texto superior e inferior
 colorFondoText.addEventListener("input", () => {
   memeTextInf.style.backgroundColor = colorFondoText.value;
   memeTextSup.style.backgroundColor = colorFondoText.value;
   labelColorFondotxt.textContent = colorFondoText.value;
 });
 
+//Remover color fondo texto superior e inferior
 sinFondoText.addEventListener("click", () => {
   if (sinFondoText.checked) {
     memeTextSup.style.backgroundColor = "transparent";
@@ -242,9 +250,9 @@ sinFondoText.addEventListener("click", () => {
   }
 });
 
+//Evento boton descargar meme
 btnDescargar.addEventListener("click", () => {
-  domtoimage.toBlob(memeContainer)
-  .then(function (blob) {
+  domtoimage.toBlob(memeContainer).then(function (blob) {
     window.saveAs(blob, "meme.png");
   });
 });

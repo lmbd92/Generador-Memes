@@ -50,7 +50,7 @@ body {
   margin: 0;
 }
 
-p{
+p {
   margin: 0;
 }
 
@@ -60,28 +60,6 @@ body {
   overflow: hidden;
   color: var(--color-text);
   font-family: var(--font-primary);
-}
-
-.panel {
-  width: 260px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: var(--colo-panel);
-  padding: 30px 15px;
-  overflow: auto;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
-}
-
-.button-close {
-  position: fixed;
-  top: 0;
-  right: 15px;
 }
 
 .ocultar {
@@ -94,11 +72,19 @@ body {
   margin-bottom: 5px;
 }
 
-.panel-botones {
+.button {
+  height: 36px;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+  font-size: 14px;
+  cursor: pointer;
 }
 
-.button {
+input[type="file"] {
   height: 36px;
   display: flex;
   justify-content: center;
@@ -119,8 +105,8 @@ body {
   display: block;
 }
 
-.button-text:hover,
-.button-text:focus,
+.button-header:hover,
+.button-header:focus,
 .button-default:hover,
 .button-default:focus {
   background-color: var(--color-boton-default-hover);
@@ -204,7 +190,7 @@ textarea {
   bottom: 0;
 }
 
-#meme-img{
+#meme-img {
   width: 100%;
   height: 100%;
   flex-grow: 1;
@@ -213,7 +199,7 @@ textarea {
   background-position: center;
 }
 
-#btn-descargar{
+#btn-descargar {
   margin-top: 30px;
   padding: 15px;
   height: auto;
@@ -221,7 +207,7 @@ textarea {
   color: #ffffff;
 }
 
-#btn-descargar:hover{
+#btn-descargar:hover {
   background-color: #1b5e20;
 }
 
@@ -230,3 +216,44 @@ textarea {
                 Asaid
   ***********************************
 */
+.panel {
+  width: 260px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--colo-panel);
+  padding: 30px 15px;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-shadow: -10px 10px 100px 5px rgba(0, 0, 0, 0.3);
+}
+
+.button-close {
+  position: fixed;
+  top: 0;
+  right: 15px;
+}
+.panel-botones {
+  justify-content: center;
+}
+
+.panel-control {
+  margin-bottom: 20px;
+}
+
+.panel-control-filtros {
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+input[type="range"] {
+  width: 100%;
+  background-color: #5a5d68;
+  border-radius: 10px;
+  appearance: none;
+  height: 6px;
+}

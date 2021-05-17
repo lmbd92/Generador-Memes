@@ -16,6 +16,8 @@ const inputFondo = document.querySelector("#color-fondo-img-input");
 const optionSelect = document.querySelector("#efectos-fondo");
 const inpFile = document.querySelector("#inpFile");
 
+
+//Botón Choose file
 inpFile.addEventListener("change", function () {
   const file = this.files[0];
   const reader = new FileReader();

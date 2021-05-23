@@ -178,7 +178,6 @@
               step="0.001px"
             />
           </div>
-          <!--Revisar escala de desenfoque-->
           <div class="panel-control-filtros">
             <label for="grises-range">ESCALA DE GRISES</label
             ><input
@@ -244,53 +243,61 @@
       <section class="sidebar ocultar" id="panel-texto">
         <h3>TEXTO</h3>
         <div class="panel-control">
-          <h4>SUPERIOR</h4>
+          <h4 class="panel-control-title">SUPERIOR</h4>
           <textarea
             id="sup-text"
-            class="sidebar-input"
+            class="sidebar-input url-input"
             rows="1"
             value="Top Text"
             aria-label="Top Text"
           ></textarea>
-          <label
-            ><input id="sup-check" type="checkbox" />Sin texto superior</label
-          >
-          <h4>INFERIOR</h4>
+          <div class="flex-cont">
+            <input id="sup-check" type="checkbox" /><label
+              >Sin texto superior</label
+            >
+          </div>
+        </div>
+        <div class="panel-control">
+          <h4 class="panel-control-title">INFERIOR</h4>
           <textarea
             id="inf-text"
-            class="sidebar-input"
+            class="sidebar-input url-input"
             rows="1"
             value="bottom Text"
             aria-label="bottom Text"
           ></textarea>
-          <label>
-            <input id="inf-check" type="checkbox" /> Sin texto inferior</label
-          >
+          <div class="flex-cont">
+            <input id="inf-check" type="checkbox" /><label
+              >Sin texto inferior</label
+            >
+          </div>
         </div>
+
         <!--FONT STYLE-->
-        <h4>FUENTE</h4>
-        <select id="input-font" class="sidebar-input">
-          <option value="Verdana" selected="selected">Verdana</option>
-          <option value="Arial">Arial</option>
-          <option value="Arial Narrow Bold">Arial Narrow Bold</option>
-          <option value="monospace">monospace</option>
-          <option value="fantasy">fantasy</option>
-          <option value="sans-serif">sans-serif</option>
-          <option value="Helvetica">Helvetica</option>
-          <option value="Impact">Impact</option>
-          <option value="Times New Roman">Times New Roman</option>
-        </select>
-        <div class="divrow">
+        <div class="panel-control">
+          <h4 class="panel-control-title">FUENTE</h4>
+          <select id="input-font" class="sidebar-input panel-control-input">
+            <option value="Verdana" selected="selected">Verdana</option>
+            <option value="Arial">Arial</option>
+            <option value="Arial Narrow Bold">Arial Narrow Bold</option>
+            <option value="monospace">monospace</option>
+            <option value="fantasy">fantasy</option>
+            <option value="sans-serif">sans-serif</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Impact">Impact</option>
+            <option value="Times New Roman">Times New Roman</option>
+          </select>
+
           <!--FONT SIZE-->
-          <input
-            class="sidebar-input"
-            type="number"
-            min="12"
-            max="54"
-            id="font-size"
-            value="40"
-          />
-          <div class="divrow">
+          <div class="flex-cont">
+            <input
+              class="sidebar-input panel-control-input"
+              type="number"
+              min="12"
+              max="54"
+              id="font-size"
+              value="40"
+            />
             <button id="btn-text-left" type="button" class="sidebar-input">
               <i class="fas fa-align-left"></i>
             </button>
@@ -302,14 +309,15 @@
             </button>
           </div>
         </div>
-        <div class="divrow" style="justify-content: center">
-          <div class="divcol">
-            <h4>COLOR</h4>
-            <input type="color" value="#000000" id="text-color" />
+        <div class="panel-control-options">
+          <h4 class="panel-control-title">COLOR</h4>
+          <div class="panel-control-color panel-control-colum">
+            
+            <input type="color" value="#000000" id="text-color" class="panel-control-color"/>
             <span id="spantext-color">#000000</span>
           </div>
-          <div class="divcol">
-            <h4>FONDO</h4>
+          <div class="panel-control-color panel-control-colum">
+            <h4 class="panel-control-title">FONDO</h4>
             <input type="color" value="#FFFFFF" id="fondo-color-text" />
             <span id="spantext-colorFondo">#FFFFFF</span>
           </div>
@@ -317,29 +325,35 @@
         <br />
         <input class="sidebar-input" id="fondo-check" type="checkbox" />Fondo
         transparente
-        <h4>CONTORNO</h4>
-        <div class="divrow">
-          <button id="strokeNone" class="sidebar-input">Ninguno</button>
-          <button id="strokeLight" class="sidebar-input">Claro</button>
-          <button id="strokeDark" class="sidebar-input">Oscuro</button>
+        <div class="panel-control">
+          <h4 class="panel-control-title">CONTORNO</h4>
+          <div class="divrow">
+            <button id="strokeNone" class="sidebar-input">Ninguno</button>
+            <button id="strokeLight" class="sidebar-input">Claro</button>
+            <button id="strokeDark" class="sidebar-input">Oscuro</button>
+          </div>
         </div>
-        <h4>ESPACIADO</h4>
-        <input
-          class="sidebar-input"
-          type="number"
-          id="espaciado"
-          min="10"
-          max="50"
-          value="35"
-        />
-        <h4>INTERLINEADO</h4>
-        <select id="interlineado" class="sidebar-input" value="17" range>
-          <option value="0.8">0.8</option>
-          <option value="1">1</option>
-          <option value="1.2" selected="selected">1.2</option>
-          <option value="1.5">1.5</option>
-          <option value="2">2</option>
-        </select>
+        <div class="panel-control">
+          <h4 class="panel-control-title">ESPACIADO</h4>
+          <input
+            class="sidebar-input"
+            type="number"
+            id="espaciado"
+            min="10"
+            max="50"
+            value="35"
+          />
+        </div>
+        <div class="panel-control">
+          <h4 class="panel-control-title">INTERLINEADO</h4>
+          <select id="interlineado" class="sidebar-input" value="17" range>
+            <option value="0.8">0.8</option>
+            <option value="1">1</option>
+            <option value="1.2" selected="selected">1.2</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2</option>
+          </select>
+        </div>
       </section>
     </aside>
 

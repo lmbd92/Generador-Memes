@@ -1,5 +1,7 @@
 # Editor de memes
 
+Trabajo práctico del curso de desarrollo Front end módulo JavaScript.
+
 🎛 Funcionalidades
 * Tablero Meme principal
 * Alternar entre paneles

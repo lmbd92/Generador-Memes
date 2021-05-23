@@ -1,6 +1,6 @@
 "use strict";
 //General
-const panel = document.querySelector("#panel");
+const panel = document.querySelector("#panel-aside");
 const btnClose = document.querySelector("#panel-button-close");
 const btnImg = document.querySelector("#btn-img");
 const btnText = document.querySelector("#btn-text");
@@ -66,10 +66,10 @@ btnText.addEventListener("click", () => {
 
 //Cambio de tema oscuro/claro
 btnTheme.addEventListener("click", () => {
-  if (body.className == "light-theme") {
+  if (body.className === "light-theme") {
     body.className = "dark-theme";
     btnTheme.textContent = "Modo claro";
-  } else if (body.className == "dark-theme") {
+  } else if (body.className === "dark-theme") {
     body.className = "light-theme";
     btnTheme.textContent = "Modo Oscuro";
   }

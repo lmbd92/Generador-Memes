@@ -5,6 +5,7 @@ const btnClose = document.querySelector("#panel-button-close");
 const btnImg = document.querySelector("#btn-img");
 const btnText = document.querySelector("#btn-text");
 const btnTheme = document.querySelector("#btn-theme");
+const txtTheme = document.querySelector("#textTheme");
 const btnDescargar = document.querySelector("#btn-descargar");
 const memeContainer = document.querySelector(".meme-container");
 const panelImg = document.querySelector("#panel-imagen");
@@ -68,10 +69,10 @@ btnText.addEventListener("click", () => {
 btnTheme.addEventListener("click", () => {
   if (body.className === "light-theme") {
     body.className = "dark-theme";
-    btnTheme.textContent = "Modo claro";
+    txtTheme.textContent = "Modo Claro";
   } else if (body.className === "dark-theme") {
     body.className = "light-theme";
-    btnTheme.textContent = "Modo Oscuro";
+    txtTheme.textContent = "Modo Oscuro";
   }
 });
 
